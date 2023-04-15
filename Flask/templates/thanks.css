@@ -58,6 +58,11 @@ h1 {
 		}
 }
 
+
+.rainbow-bg{
+		animation: rainbow-bg 2.5s linear;
+		animation-iteration-count: infinite;
+}
 }
 .parent{
 	animation: rainbow 2.5s linear;
