@@ -18,10 +18,7 @@ h1 {
     width: 50%;
 }
 
-.rainbow{
-animation: rainbow 2.5s linear;
-		animation-iteration-count: infinite;
-}
+
 @keyframes rainbow{
 		0%,100%{
 			color: rgb(255,0,0);
@@ -59,4 +56,21 @@ animation: rainbow 2.5s linear;
 		91%{
 			color: rgb(255,0,127);
 		}
+}
+
+}
+.parent{
+	animation: rainbow 2.5s linear;
+	animation-iteration-count: infinite;
+}
+
+.child{
+}
+
+.parent: hover{
+	color: whitesmoke;}
+
+.parent: hover .child{
+	animation: rainbow 2.5s linear;
+	animation-iteration-count: infinite;
 }
