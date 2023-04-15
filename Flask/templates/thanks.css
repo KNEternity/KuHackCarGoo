@@ -64,13 +64,15 @@ h1 {
 	animation-iteration-count: infinite;
 }
 
-.child{
+.child{	
+	background: #282828;
 }
 
 .parent: hover{
 	color: whitesmoke;}
 
 .parent: hover .child{
-	animation: rainbow 2.5s linear;
+	animation: rainbow-bg 2.5s linear;
 	animation-iteration-count: infinite;
+}
 }
