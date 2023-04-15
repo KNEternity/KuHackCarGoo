@@ -1,0 +1,32 @@
+h1 {
+  text-align: center;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.pn {
+  text-align: center;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  background-color: #282828;
+}
+
+.next {
+  font-family: 'Courier New', Courier, monospace;
+  padding: 10px;
+  border-width: 0px;
+  transition: background-color 1s, color 1s;
+}
+
+.next:hover {
+  cursor: pointer;
+  background-color: #282828;
+  color: white;
+}
+
+.next:active {
+  opacity: .7;
+}

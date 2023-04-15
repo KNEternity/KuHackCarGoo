@@ -2,16 +2,17 @@
 <html>
   <head>
     <title>Form 1</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='form1.css')}}">>
   </head>
   <body>
-    <h1>Form 1: Phone Number</h1>
+    <h1>Please enter you phone number</h1>
     {% if error %}
-    <p style="color: red;">{{ error }}</p>
+    <p style="color: red; text-align: center; font-family: 'Courier New', Courier, monospace;">{{ error }}</p>
     {% endif %}
-    <form method="POST">
+    <form method="POST" class="pn">
       <label for="phone_number">Phone Number:</label>
       <input type="text" id="phone_number" name="phone_number" placeholder="Ex. +13161234567"><br><br>
-      <input type="submit" value="Next">
+      <input type="submit" value="Next" class="next">
     </form>
   </body>
 </html>

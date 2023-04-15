@@ -59,7 +59,7 @@ body:hover {
   text-align: center;
   border: none;
   outline: none;
-  transition: 1.5s;
+  transition: 1s;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 700;
 }
