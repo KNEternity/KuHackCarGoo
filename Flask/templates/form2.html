@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vehicle Maintenance Tracker - Form 2</title>
+</head>
+<body>
+	<h1>Vehicle Maintenance Tracker - Form 2</h1>
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+	<form method="post">
+		<p>What services do you require today? Check all that apply:</p>
+		<label for="oil_change">Oil Change:</label>
+		<input type="checkbox" id="oil_change" name="oil_change" value="oil_change"><br>
+
+		<label for="coolant_change">Coolant Change:</label>
+		<input type="checkbox" id="coolant_change" name="coolant_change" value="coolant_change"><br>
+
+		<label for="tire_alignment">Tire Alignment:</label>
+		<input type="checkbox" id="tire_alignment" name="tire_alignment" value="tire_alignment"><br>
+
+		<p>If you checked any of the boxes above, please enter the date of your latest service:</p>
+		<label for="oil_change_date">Oil Change Date (MM/DD/YYYY):</label>
+		<input type="text" id="oil_change_date" name="oil_change_date"><br>
+
+		<label for="coolant_change_date">Coolant Change Date (MM/DD/YYYY):</label>
+		<input type="text" id="coolant_change_date" name="coolant_change_date"><br>
+
+		<label for="tire_alignment_date">Tire Alignment Date (MM/DD/YYYY):</label>
+		<input type="text" id="tire_alignment_date" name="tire_alignment_date"><br>
+
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>

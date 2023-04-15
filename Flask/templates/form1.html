@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form 1</title>
+  </head>
+  <body>
+    <h1>Form 1: Phone Number</h1>
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="POST">
+      <label for="phone_number">Phone Number:</label>
+      <input type="text" id="phone_number" name="phone_number" placeholder="Ex. +13161234567"><br><br>
+      <input type="submit" value="Next">
+    </form>
+  </body>
+</html>
