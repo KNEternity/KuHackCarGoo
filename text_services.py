@@ -3,17 +3,14 @@ import keys
 import datetime
 from dateutil.relativedelta import relativedelta
 
-
-def send_initial_text(target_number):
+def send_text(target_number, text_info):
     client = Client(keys.account_sid, keys.auth_token)
 
     message = client.messages.create(
-        body = 'Hi! You have just signed up for CarGO maintenance services! Reply STOP to unsubscribe',
+        body = text_info,
         from_ = keys.twilio_number,
         to = target_number
     )
-
-    print(message.body)
     
 def next_date_send():
     return (datetime.date.today() + datetime.timedelta(6*365/12)).isoformat()
@@ -24,19 +21,23 @@ def get_target_number():
 
 def maintenance_texts(start_date, timeframe):
     dates = (start_date.split('-'))
-    for i in range(len(dates)):
-        dates[i] = int(dates[i])
-    date = datetime.date(dates[2], dates[0], dates[1])
-    next_date = date + relativedelta(months=timeframe)
-    new_date = next_date.strftime("%m-%d-%Y")
-    return new_date
-
-
+    dates[2] = int(dates[2])
+    dates[2] += timeframe
+    dates[2] = str(dates[2])
+    return dates
 
 
 def main():
     number = get_target_number()
-    send_initial_text(number)
-    print('Done')
+    texts = 'Hi! You have just signed up for CarGO maintenance services! Reply STOP to unsubscribe'
     
-print(maintenance_texts('4-14-2023', 6))
+    preset_date = maintenance_texts('2023-04-15', 0)
+    print(preset_date)
+    current_date = str(datetime.date.today()).split('-')
+    print(current_date)
+    if current_date == preset_date:
+        send_text(number, texts)
+        print (True)
+    
+
+main()
