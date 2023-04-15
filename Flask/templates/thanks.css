@@ -112,10 +112,10 @@ h1 {
 }
 
 .parent: hover{
-	color: whitesmoke;}
+	color: whitesmoke;
+}
 
 .parent: hover .child{
-	animation: rainbow-bg 2.5s linear;
-	animation-iteration-count: infinite;
+	background-color: red;
 }
-}
+
