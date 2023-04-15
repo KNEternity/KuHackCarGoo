@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for
 import re
-app = Flask(__name__)
+from main import *
 
+app = Flask(__name__)
 
 @app.route('/')
 def index():
@@ -11,9 +12,14 @@ def index():
 def form1():
     if request.method == 'POST':
         phone_number = request.form['phone_number']
-        if not re.match(r'^\+[1-9]\d{1,14}$', phone_number):
+        if not re.match(r'^\+[1-9]\d{1,14}$', phone_number) or len(phone_number) != 12:
             return render_template('form1.html', error='Invalid phone number format. Please enter a number in the format +13161234567.')
         print(phone_number)
+        print(str(phone_number))
+        
+        with open('numbers.txt', 'w') as numbers:
+            numbers.write(phone_number)
+            
         return redirect(url_for('form2', phone_number=phone_number))
     return render_template('form1.html')
 
@@ -45,7 +51,13 @@ def form2():
         if tire_alignment and not tire_alignment_date:
             return render_template('form2.html', error='Please enter the date of your last tire alignment')
         
-        print(oil_change, oil_change_date)
+        with open('dates.txt', 'w') as dates:
+
+                dates.write(oil_change_date + '\n')
+                dates.write(coolant_change_date + '\n')
+                dates.write(tire_alignment_date + '\n')
+                
+        main()
         return redirect('/thanks')
 
     return render_template('form2.html', oil_change=oil_change, coolant_change=coolant_change, tire_alignment=tire_alignment, oil_change_date=oil_change_date, coolant_change_date=coolant_change_date, tire_alignment_date=tire_alignment_date)
@@ -53,6 +65,7 @@ def form2():
 @app.route('/thanks', methods=['GET', 'POST'])
 def thanks():
     return render_template('thanks.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
