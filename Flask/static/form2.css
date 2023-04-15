@@ -1,0 +1,49 @@
+h1 {
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+}
+
+.service {
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+}
+
+.in {
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+}
+
+.inputs {
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+}
+
+.date {
+  margin-top: 3px;
+  color: white;
+}
+
+body {
+  background-color: #282828;
+}
+
+.submit_button {
+  border-width: 0px;
+  padding: 10px;
+  margin-top: 3px;
+  font-family: 'Courier New', Courier, monospace;
+  transition: background-color 1s, color 1s;
+}
+
+.submit_button:hover {
+  cursor: pointer;
+  background-color: #282828;
+  color: white;
+}
+
+.submit_button:active {
+  opacity: .7;
+}
