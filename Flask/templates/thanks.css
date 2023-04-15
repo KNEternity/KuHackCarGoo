@@ -23,7 +23,7 @@ animation: rainbow 2.5s linear;
 		animation-iteration-count: infinite;
 }
 @keyframes rainbow{
-		100%,0%{
+		0%,100%{
 			color: rgb(255,0,0);
 		}
 		8%{
