@@ -1,0 +1,15 @@
+body {
+    background: dodgerblue;
+}
+body button {
+    margin-top: auto;
+    margin-left: auto;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+body p {
+    margin-top: 20px;
+    font-size: 30px;
+    text-align: center;
+    color:aliceblue;
+}
