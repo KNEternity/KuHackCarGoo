@@ -19,6 +19,7 @@ def get_target_number():
     with open('numbers.txt', 'r') as numbers:
         for line in numbers:
             target_number = line.strip()
+            break
     return target_number
 
 def maintenance_texts(start_date, timeframe):
@@ -59,8 +60,3 @@ def main():
     else:
         tire_alignment = maintenance_texts(maintenances()[2],18)
         send_text(number, f'You will need to adjust your TIRES around {tire_alignment}. We will send you another reminder when the date gets closer.')
-
-
-
-
-
