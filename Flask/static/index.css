@@ -28,7 +28,7 @@ body:hover {
 .submit-button {
   background-color: white;
   font-family: 'Courier New', Courier, monospace;
-  transition: background-color 1s, color 1s;
+  transition: background-color 1s, color 1s, border-width .7s, border-color .7s;
   border-width: 0px;
   padding: 10px;
 }
@@ -37,6 +37,8 @@ body:hover {
   cursor: pointer;
   background-color: #282828;
   color: white;
+  border-width: 1px;
+  border-color: white;
 
 }
 
@@ -93,4 +95,3 @@ body:hover {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }
-

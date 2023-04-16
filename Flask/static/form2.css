@@ -4,6 +4,7 @@ h1 {
   color: white;
 }
 
+
 .service {
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
@@ -23,7 +24,6 @@ h1 {
 
 .date {
   margin-top: 3px;
-  color: white;
 }
 
 body {
@@ -35,13 +35,15 @@ body {
   padding: 10px;
   margin-top: 3px;
   font-family: 'Courier New', Courier, monospace;
-  transition: background-color 1s, color 1s;
+  transition: background-color 1s, color 1s, border-width .7s, border-color .7s;
 }
 
 .submit_button:hover {
   cursor: pointer;
   background-color: #282828;
   color: white;
+  border-width: 1px;
+  border-color: white;
 }
 
 .submit_button:active {

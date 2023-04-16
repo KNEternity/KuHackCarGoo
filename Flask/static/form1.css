@@ -18,13 +18,15 @@ body {
   font-family: 'Courier New', Courier, monospace;
   padding: 10px;
   border-width: 0px;
-  transition: background-color 1s, color 1s;
+  transition: background-color 1s, color 1s, border-width .7s, border-color .7s;
 }
 
 .next:hover {
   cursor: pointer;
   background-color: #282828;
   color: white;
+  border-width: 1px;
+  border-color: white;
 }
 
 .next:active {
