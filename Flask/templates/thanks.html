@@ -3,12 +3,31 @@
   <head>
     <title>Thank you</title>
     <script src='thanks.js'></script>
+    <link rel="stylesheet" href="thanks.css">
   </head>
   <body class="child">
     <h1 class="parent">Thank you</h1>
   </body>
-  <p>
-    <img id="image_shower" class="center", class="App-logo"/>
-  </p>
+    <img src="pictures/malone.gif" alt="If you can see this, then the image didn't load properly" id="image_shower" class="center", class="App-logo"/>
+    <script>
+  
+  window.onload = choosePic;
+
+  var myPix = new Array(  'pictures/malone.gif',
+  'pictures/omg-thank-you.gif',
+  'pictures/thank1.gif',
+  'pictures/thank2.gif',
+  'pictures/thankyou_cat.gif');
+  
+  function choosePic() {
+       var randomNum = Math.floor(Math.random() * myPix.length);
+       document.getElementById("image_shower").src = myPix[randomNum]}
+</script>
   <link rel="stylesheet" href="styles/thanks.css">
+  <body>
+    <h2 class = "parent center" > By Kevinh Nguyen, Tuan Vu, Changwen Gon, Kobe Jordan</h2>
+  </body>
+    <img src="/Users/kevinhnguyen/KUHACK23_CARGO-3/Flask/templates/pictures/tuanvu.jpeg" alt="this is tuan pictures" width=100px height=100px>
 </html>
+
+
