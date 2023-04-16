@@ -2,64 +2,12 @@
 <html>
 <head>
 	<title>Welcome to carGOO!</title>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css')}}">
 </head>
 <body>
-		<h1>Welcome to carGOO!</h1>
-		<hr>
-		<p>Thank you for visiting our website. Click the button below to get started!</p>
-		<form method="get" action="{{ url_for('form1') }}">
-			<div class="submit">
-				<button type="submit" class="submit-button">Get Started!</button>
-			</div>
-		</form>
-		<p>Other information you might find useful below </p>
-		<div class="drop_down">
-			<button class="accordion round1">Need to Change your Tires</button>
-			<div class="panel">
-				<p class="drop">Video: <a href="https://www.youtube.com/watch?v=joBmbh0AGSQ" target="_blank">How to Change a Tire |<br> Change a flat car tire step by step</a></p>
-				<p class="drop">Article: <a href="https://www.bridgestonetire.com/learn/maintenance/how-to-change-a-flat-tire/" target="_blank">How to Change a Flat Tire</a></p>
-			</div>
-
-			<button class="accordion">Need to replace your breaks</button>
-			<div class="panel">
-				<p class="drop">Video: <a href="https://www.youtube.com/watch?v=6RQ9UabOIPg" target="_blank">How to Replace Brake Pads and Rotors (COMPLETE Guide)</a></p>
-				<p class="drop">Article: <a href="https://www.autozone.com/diy/brakes/how-to-replace-brake-pads-and-rotors" target="_blank">HOW TO REPLACE BRAKE PADS AND ROTORS</a></p>
-			</div>
-			
-			<button class="accordion">Need to change your oil</button>
-			<div class="panel">
-				<p class="drop">Video: <a href="https://www.youtube.com/watch?v=O1hF25Cowv8" target="_blank">How to Change Your Oil (COMPLETE Guide)</a></p>
-				<p class="drop">Article: <a href="https://www.caranddriver.com/features/a27169631/how-to-change-oil-in-car/" target="_blank">How to Change Your Oil</a></p>
-			</div>
-
-			<button class="accordion round2">Need to change your coolant</button>
-			<div class="panel">
-				<p class="drop">Video: <a href="https://www.youtube.com/watch?v=g8YZF5cW7-A" target="_blank">How to Quick Flush Your Cars Cooling System</a></p>
-				<p class="drop">Article: <a href="https://www.familyhandyman.com/project/how-to-change-coolant/" target="_blank">How to Change Coolant</a></p>
-			</div>
-		</div>
-
-
-		<script>
-			var acc = document.getElementsByClassName("accordion");
-			var i;
-	
-			for (i = 0; i < acc.length; i++) {
-				acc[i].addEventListener("click", function() {
-					/* Toggle between adding and removing the "active" class,
-					to highlight the button that controls the panel */
-					this.classList.toggle("active");
-	
-					/* Toggle between hiding and showing the active panel */
-					var panel = this.nextElementSibling;
-					if (panel.style.display === "block") {
-						panel.style.display = "none";
-					} else {
-						panel.style.display = "block";
-					}
-				});
-			}
-		</script>
-	</body>
+	<h1>Welcome to carGOO!</h1>
+	<p>Thank you for visiting our website. Click the button below to get started!</p>
+	<form method="get" action="{{ url_for('form1') }}">
+		<button type="submit">Get Started!</button>
+	</form>
+</body>
 </html>

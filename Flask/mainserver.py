@@ -2,6 +2,7 @@ from twilio.rest import Client
 import keys
 import datetime
 from dateutil.relativedelta import relativedelta
+import sqlite3
 
 def send_text(target_number, text_info):
     client = Client(keys.account_sid, keys.auth_token)
@@ -16,9 +17,11 @@ def next_date_send():
     return (datetime.date.today() + datetime.timedelta(6*365/12)).isoformat()
 
 def get_target_number():
-    with open('numbers.txt', 'r') as numbers:
-        for line in numbers:
-            target_number = line.strip()
+    conn = sqlite3.connect('Hackathon.db')
+    c = conn.cursor()
+    c.execute('SELECT phone FROM users ORDER BY id DESC LIMIT 1')
+    target_number = c.fetchone()[0]
+    conn.close()
     return target_number
 
 def maintenance_texts(start_date, timeframe):
@@ -29,17 +32,13 @@ def maintenance_texts(start_date, timeframe):
     return(new_date_str)
 
 def maintenances():
-    main = []
-    oil_date, coolant_date, tire_alignment = '','',''
-    with open('dates.txt', 'r') as dates:
-        for line in dates:
-            main.append(line.strip())
-    if main[0]!='':
-        oil_date=main[0]
-    if main[1]!='':
-        coolant_date=main[1]
-    if main[2]!='':
-        tire_alignment=main[2]
+    target_number = get_target_number()
+    conn = sqlite3.connect('Hackathon.db')
+    c = conn.cursor()
+    c.execute("SELECT oil_date, coolant_date, tire_alignment FROM maintenance WHERE phone = ?", (target_number))
+    oil_date, coolant_date, tire_alignment = c.fetchone()
+    print(oil_date, coolant_date, tire_alignment)
+    conn.close()
     return [oil_date, coolant_date, tire_alignment]
                     
 def main():
@@ -59,11 +58,3 @@ def main():
     else:
         tire_alignment = maintenance_texts(maintenances()[2],18)
         send_text(number, f'You will need to adjust your TIRES around {tire_alignment}. We will send you another reminder when the date gets closer.')
-    
-
-
-
-
-
-
-
