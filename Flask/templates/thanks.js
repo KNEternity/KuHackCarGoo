@@ -1,15 +1,12 @@
-image_arry = [
-  'malone.gif'
-  'omg-thank-you.gif'
-  'thank1.gif'
-  'thank2.gif'
-  'thankyou_cat.gif'
-  ]
 
-function get_random_image(){
- random_index = Math.floor(Math.random() * image_array.length);
+  window.onload = choosePic;
+
+  var myPix = new Array(  'pictures/malone.gif',
+  'pictures/omg-thank-you.gif',
+  'pictures/thank1.gif',
+  'pictures/thank2.gif',
+  'pictures/thankyou_cat.gif');
   
-  selected_iamge = image_array(random_index]
-                               
-  document.getElementByID('image_shower').src = './pictures/${selected_image}'                              
-}
+  function choosePic() {
+       var randomNum = Math.floor(Math.random() * myPix.length);
+       document.getElementById("image_shower").src = myPix[randomNum]}
