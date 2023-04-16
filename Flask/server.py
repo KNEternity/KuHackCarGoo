@@ -14,8 +14,10 @@ def form1():
         phone_number = request.form['phone_number']
         if not re.match(r'^\+[1-9]\d{1,14}$', phone_number) or len(phone_number) != 12:
             return render_template('form1.html', error='Invalid phone number format. Please enter a number in the format +13161234567.')
-        print(phone_number)
-        print(str(phone_number))
+        try:
+            send_text(phone_number, 'Hi! Welcome to CarGOO!')
+        except:
+            return render_template('form1.html', error='Invalid phone number. Make sure you enetered your number correctly!')
         
         with open('numbers.txt', 'w') as numbers:
             numbers.write(phone_number)
@@ -51,12 +53,24 @@ def form2():
         if tire_alignment and not tire_alignment_date:
             return render_template('form2.html', error='Please enter the date of your last tire alignment')
         
+        if oil_change == False and coolant_change == False and tire_alignment == False:
+            return render_template('form2.html', error='Please choose an option')
+        
+        test_list = []
+        test_list.append(oil_change_date)
+        test_list.append(coolant_change_date)
+        test_list.append(tire_alignment_date)
+        res = [str(i or '') for i in test_list]
+        
+        if (res[0]+res[1]+res[2]).isalpha():
+            return render_template('form2.html', error='Please check the formatting')
+        
+        if not ('-' in (res[0]+res[1]+res[2])):
+            return render_template('form2.html', error='Please check the formatting')
         with open('dates.txt', 'w') as dates:
+            for i in res:
+                dates.write(i + '\n')
 
-                dates.write(oil_change_date + '\n')
-                dates.write(coolant_change_date + '\n')
-                dates.write(tire_alignment_date + '\n')
-                
         main()
         return redirect('/thanks')
 
