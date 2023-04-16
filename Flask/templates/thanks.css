@@ -2,13 +2,18 @@ body {
     background: #282828;
   }
 
+h2{
+	font-family: 'Courier New', Courier, monospace;
+
+}
+  
 h1 {
     margin-top: auto;
     margin-bottom: auto;
     color: whitesmoke;
     font-size: 70px;
     text-align: center;
-    font-family: 'Roboto';
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .center {
@@ -140,3 +145,37 @@ h1 {
 }
 
 	
+#pot {
+	bottom: 15%;
+	position: absolute;
+	animation: linear infinite;
+	animation-name: run;
+	animation-duration: 2s
+  }
+  
+@keyframes run {
+0% {
+	left: 0;
+}
+22% {
+	transform: rotateY(0deg); 
+	transform: rotate(30deg);
+	transform: rotate(30deg);
+}
+50% { 
+	left: calc(100% - 200px);
+	transform: rotate(30deg);
+	transform: rotateY(180deg); 
+	transform: rotate(30deg);
+}
+75% {
+	transform: rotate(30deg);
+	transform: rotate(30deg);
+	transform: rotateY(180deg); 
+}
+100% {
+	left: 0;    
+	transform: rotateY(0deg);
+	transform: rotate(30deg);
+	transform: rotate(30deg);
+}}
